@@ -45,5 +45,26 @@
         link.addEventListener('click', function() {
             console.log('Opening external link:', this.href);
         });
-    });
+    }
+
+    // Services filter
+    const serviceFilter = document.getElementById('serviceFilter');
+    const serviceItems = Array.from(document.querySelectorAll('.service-item'));
+
+    function applyServiceFilter(value) {
+        serviceItems.forEach(item => {
+            const cat = item.dataset.category || '';
+            if (value === 'all' || cat === value) {
+                item.style.display = '';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    }
+
+    if (serviceFilter && serviceItems.length) {
+        serviceFilter.addEventListener('change', (e) => applyServiceFilter(e.target.value));
+        // optional: apply default on load
+        applyServiceFilter(serviceFilter.value);
+    }
 })();
