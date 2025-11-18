@@ -23,15 +23,82 @@
         <h1>Contact Us</h1>
         <h2>Polish & Plait Beauty Bar</h2>
         <ul>
-            <li><strong>WhatsApp:</strong> <a href="https://wa.me/your_whatsapp_number" target="_blank">Chat with us on WhatsApp</a></li>
-            <li><strong>Facebook:</strong> <a href="https://www.facebook.com/your_facebook_page" target="_blank">Visit our Facebook page</a></li>
-            <li><strong>Instagram:</strong> <a href="https://www.instagram.com/your_instagram_handle" target="_blank">Follow us on Instagram</a></li>
+            <li><strong>WhatsApp:</strong> <a href="https://wa.me/your_whatsapp_number" target="_blank" rel="noopener">Chat with us on WhatsApp</a></li>
+            <li><strong>Facebook:</strong> <a href="https://www.facebook.com/your_facebook_page" target="_blank" rel="noopener">Visit our Facebook page</a></li>
+            <li><strong>Instagram:</strong> <a href="https://www.instagram.com/your_instagram_handle" target="_blank" rel="noopener">Follow us on Instagram</a></li>
         </ul>
         <p>For any inquiries or to book an appointment, feel free to reach out through the above channels.</p>
+
+        <section class="contact-form">
+            <h3>Send us a message</h3>
+            <form id="contactForm" novalidate>
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+
+            <div id="formFeedback" aria-live="polite" style="margin-top:1rem;"></div>
+        </section>
     </main>
 
     <footer>
         <p>&copy; 2023 Polish & Plait Beauty Bar. All rights reserved.</p>
     </footer>
+    
+    <script>
+    (function() {
+        const form = document.getElementById('contactForm');
+        const feedback = document.getElementById('formFeedback');
+
+        function showMessage(text, ok = true) {
+            feedback.textContent = text;
+            feedback.style.color = ok ? 'green' : 'crimson';
+        }
+
+        function isValidEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = form.name.value.trim();
+            const email = form.email.value.trim();
+            const message = form.message.value.trim();
+
+            if (!name) {
+                showMessage('Please enter your name.', false);
+                form.name.focus();
+                return;
+            }
+            if (!email || !isValidEmail(email)) {
+                showMessage('Please enter a valid email address.', false);
+                form.email.focus();
+                return;
+            }
+            if (!message || message.length < 10) {
+                showMessage('Please enter a message (at least 10 characters).', false);
+                form.message.focus();
+                return;
+            }
+
+            showMessage('Thank you — your message has been sent.', true);
+            form.reset();
+        });
+
+        document.querySelectorAll('main a[target="_blank"]').forEach(link => {
+            link.addEventListener('click', function() {
+                console.log('Opening external link:', this.href);
+            });
+        });
+    })();
+    </script>
 </body>
 </html>

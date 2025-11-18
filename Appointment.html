@@ -33,41 +33,45 @@
                 <input type="submit" value="Book Appointment">
             </form>
         </div>
+    </main>
+
+        
+    <footer>
+        <p>&copy; 2023 Polish & Plait Beauty Bar. All rights reserved.</p>
+    </footer>
 
      <script>
-    const dateInput = document.getElementById("date");
-    const timeInput = document.getElementById("time");
+const dateInput = document.getElementById('date');
+const timeInput = document.getElementById('time');
+const bookingForm = document.getElementById('bookingForm');
 
-    const today = new Date().toISOString().split("T")[0];
-    dateInput.setAttribute("min", today);
+if (dateInput) {
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.setAttribute('min', today);
+}
 
-    document.getElementById('bookingForm').addEventListener('submit', function(event) {
+if (bookingForm && dateInput && timeInput) {
+    bookingForm.addEventListener('submit', function(event) {
         event.preventDefault();
 
         const selectedDate = new Date(dateInput.value);
         const selectedTime = timeInput.value;
-
         const now = new Date();
 
         if (selectedDate.toDateString() === now.toDateString()) {
             if (selectedTime <= now.toTimeString().slice(0, 5)) {
-                alert("You cannot book a past time today. Please select a future time.");
+                alert('You cannot book a past time today. Please select a future time.');
                 return;
             }
         }
 
-        const formattedDate = selectedDate.toLocaleDateString("en-GB");
-        const finalDate = formattedDate.replace(/\//g, "-");
-
-        alert(`Appointment booked for ${finalDate} at ${selectedTime}`);
+        const formattedDate = selectedDate.toLocaleDateString('en-GB').replace(/\//g, '-');
+        alert(`Appointment booked for ${formattedDate} at ${selectedTime}`);
+        bookingForm.reset();
     });
+}
     </script>
 
-    </main>
-
-    <footer>
-        <p>&copy; 2023 Polish & Plait Beauty Bar. All rights reserved.</p>
-    </footer>
 </body>
 </html>
 
