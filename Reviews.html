@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reviews - Polish & Plait Beauty Bar</title>
+    <meta name="description" content="Read customer reviews and testimonials for Polish & Plait Beauty Bar. Discover why our clients love our manicure, pedicure, lash extension, waxing, and cornrow services.">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -38,44 +39,13 @@
         <h2>Reviews</h2>
         <div id="reviewsContainer"></div>
 
-    <script>
-    const reviewForm = document.getElementById('reviewForm');
-    const reviewsContainer = document.getElementById('reviewsContainer');
-
-    window.addEventListener('DOMContentLoaded', () => {
-        const savedReviews = JSON.parse(localStorage.getItem('reviews')) || [];
-        savedReviews.forEach(review => {
-            addReviewToPage(review.name, review.text);
-        });
-    });
-
-    reviewForm.addEventListener('submit', function(event) {
-        event.preventDefault();
-        const name = document.getElementById('name').value;
-        const review = document.getElementById('review').value;
-
-        addReviewToPage(name, review);
-
-        const savedReviews = JSON.parse(localStorage.getItem('reviews')) || [];
-        savedReviews.push({ name: name, text: review });
-        localStorage.setItem('reviews', JSON.stringify(savedReviews));
-
-        reviewForm.reset();
-    });
-
-    function addReviewToPage(name, review) {
-        const reviewDiv = document.createElement('div');
-        reviewDiv.classList.add('review');
-        reviewDiv.innerHTML = `<strong>${name}</strong><p>${review}</p>`;
-        reviewsContainer.appendChild(reviewDiv);
-    }
-    </script>
     
-    </main>
-
     <footer>
         <p>&copy; 2023 Polish & Plait Beauty Bar. All rights reserved.</p>
     </footer>
+    </main>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
 
