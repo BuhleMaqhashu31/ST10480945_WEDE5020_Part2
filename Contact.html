@@ -27,6 +27,15 @@
             <li><strong>Facebook:</strong> <a href="https://www.facebook.com/your_facebook_page" target="_blank" rel="noopener">Visit our Facebook page</a></li>
             <li><strong>Instagram:</strong> <a href="https://www.instagram.com/your_instagram_handle" target="_blank" rel="noopener">Follow us on Instagram</a></li>
         </ul>
+
+        <section>
+            <h2>Our Location</h2>
+            <iframe
+              class="map-embed"
+              src="https://maps.google.com/maps?q=148%20Kruisman%20Street%2C%20Zwide%2C%20Gqeberha&z=15&output=embed"
+              width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </section>
+
         <p>For any inquiries or to book an appointment, feel free to reach out through the above channels.</p>
 
         <section class="contact-form">
@@ -51,54 +60,7 @@
     <footer>
         <p>&copy; 2023 Polish & Plait Beauty Bar. All rights reserved.</p>
     </footer>
-    
-    <script>
-    (function() {
-        const form = document.getElementById('contactForm');
-        const feedback = document.getElementById('formFeedback');
 
-        function showMessage(text, ok = true) {
-            feedback.textContent = text;
-            feedback.style.color = ok ? 'green' : 'crimson';
-        }
-
-        function isValidEmail(email) {
-            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-        }
-
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const name = form.name.value.trim();
-            const email = form.email.value.trim();
-            const message = form.message.value.trim();
-
-            if (!name) {
-                showMessage('Please enter your name.', false);
-                form.name.focus();
-                return;
-            }
-            if (!email || !isValidEmail(email)) {
-                showMessage('Please enter a valid email address.', false);
-                form.email.focus();
-                return;
-            }
-            if (!message || message.length < 10) {
-                showMessage('Please enter a message (at least 10 characters).', false);
-                form.message.focus();
-                return;
-            }
-
-            showMessage('Thank you — your message has been sent.', true);
-            form.reset();
-        });
-
-        document.querySelectorAll('main a[target="_blank"]').forEach(link => {
-            link.addEventListener('click', function() {
-                console.log('Opening external link:', this.href);
-            });
-        });
-    })();
-    </script>
+    <script src="js/script.js"></script>
 </body>
 </html>
