@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Enquiry / Quote - Polish & Plait Beauty Bar</title>
+  <meta name="description" content="Request a quote or send an enquiry for our manicure, pedicure, lash and hair services.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Polish & Plait Beauty Bar</h1>
+    <nav>
+      <a href="Index.html">Home</a>
+        <a href="About.html">About Us</a>
+      <a href="Services.html">Services</a>
+      <a href="Appointment.html">Book Appointment</a>
+      <a href="Contact.html">Contact</a>
+      <a href="Reviews.html">Reviews</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Request a Quote / Send an Enquiry</h2>
+
+    <form id="enquiryForm" novalidate>
+      <label for="service">Choose a service</label>
+      <select id="service" name="service" required>
+        <option value="" disabled selected>Select a service</option>
+        <option value="manicure">Polygel Manicure</option>
+        <option value="pedicure">Signature Pedicure</option>
+        <option value="lashes">Lash Extensions</option>
+        <option value="waxing">Waxing</option>
+        <option value="cornrows">Cornrows</option>
+      </select>
+
+      <label for="quantity">Quantity / Sets</label>
+      <input id="quantity" name="quantity" type="number" min="1" value="1" required>
+
+      <label for="preferredDate">Preferred date</label>
+      <input id="preferredDate" name="preferredDate" type="date" required>
+
+      <label for="name">Your name</label>
+      <input id="name" name="name" type="text" minlength="2" required>
+
+      <label for="contactEmail">Email</label>
+      <input id="contactEmail" name="contactEmail" type="email" required>
+
+      <label for="contactPhone">Phone (optional)</label>
+      <input id="contactPhone" name="contactPhone" type="tel" pattern="[\d\s+\-()]{7,}" placeholder="012 345 6789">
+
+      <label for="details">Details / Notes</label>
+      <textarea id="details" name="details" rows="4" minlength="10" required></textarea>
+
+      <button type="submit">Request Quote</button>
+    </form>
+
+    <div id="enquiryResponse" aria-live="polite" class="response" style="margin-top:1rem;"></div>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Polish & Plait Beauty Bar. All rights reserved.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
