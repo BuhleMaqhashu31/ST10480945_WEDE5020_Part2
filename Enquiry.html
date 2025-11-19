@@ -21,36 +21,44 @@
     </nav>
   </header>
 
-  <main>
+<main>
     <h2>Request a Quote / Send an Enquiry</h2>
 
     <form id="enquiryForm" novalidate>
-      <label for="service">Choose a service</label>
-      <select id="service" name="service" required>
-        <option value="" disabled selected>Select a service</option>
-        <option value="manicure">Polygel Manicure</option>
-        <option value="pedicure">Signature Pedicure</option>
-        <option value="lashes">Lash Extensions</option>
-        <option value="waxing">Waxing</option>
-        <option value="cornrows">Cornrows</option>
-      </select>
+        <div class="form-group">
+            <label for="name">Your name</label>
+            <input type="text" id="name" name="name" required minlength="2" placeholder="Your full name">
+        </div>
 
-        <input type="text" id="name" required placeholder="Your Name">
-        <input type="email" id="email" required placeholder="Your Email">
-        <select id="service" required>
-            <option value="">Select a Service</option>
-            <option value="design">Web Design</option>
-            <option value="seo">SEO</option>
-        </select>
+        <div class="form-group">
+            <label for="email">Your email <address>
+            <input type="email" id="email" name="contactEmail" requied placeholder="you@examplecom">            </address></label>
+        </div>
+      
+        <div class="form group">
+            <label for="service-select">Choose a service</label>
+            <select id="service-select" name="service" required>
+                <option value="" disabled selected>Select a service</option>
+                <option value="manicure">Polygel Manicure</option>
+                <option value="pedicure">Signature Pedicure</option>
+                <option value="lashes">Lash Extensions</option>
+                <option value="waxing">Waxing</option>
+                <option value="cornrows">Cornrows</option>
+            </select>
+        </div>
+
+        <div class="form -actions">
+            <button type="submit">Request Quote</button>
+        </div>
     </form>
 
     <div id="quoteResponse"></div>
-  </main>
+</main>
 
   <footer>
     <p>&copy; 2023 Polish & Plait Beauty Bar. All rights reserved.</p>
   </footer>
 
-  <script src="js/script.js"></script>
+  <script src="JSFolder/js/script.js"></script>
 </body>
 </html>
