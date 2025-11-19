@@ -81,3 +81,10 @@ Changelog
 (Commit 4be7fe8acbb44cd9bcf26f548565cfbdf6569da3)
 25-09-2025 Fixed the logo on the 'Index' page so that it can be adaptive.
 (Commit 8c5b8136256dcec1c8cf71fab55b89b2c1df29b5)
+
+Part 3 Summary
+The javascript in this project is responsible for the interactive functionality across the website:
+Validates that selected date/time is in the future when booking an appointment, prevents booking past times on the current day, Client-side validation for name, email, and message fields, prevents submission if validation fails, shows success message and resets form on valid submission, allows users to submit new reviews, saves reviews to localStorage for persistence, filters service items by category (all, manicure, pedicure, etc.), hides/shows items based on selected filter, calculates and displays quotes based on selected service, shows personalized thank you message with quote, resets form after submission, creates modal lightbox for viewing gallery images, supports navigation between images with prev/next buttons, and logs to console when external links are clicked.
+Refereneces:
+Formspree for contact form handling. 
+Google Maps Embed API for the map. 
