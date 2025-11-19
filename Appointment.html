@@ -41,37 +41,7 @@
         <p>&copy; 2023 Polish & Plait Beauty Bar. All rights reserved.</p>
     </footer>
 
-     <script>
-const dateInput = document.getElementById('date');
-const timeInput = document.getElementById('time');
-const bookingForm = document.getElementById('bookingForm');
-
-if (dateInput) {
-    const today = new Date().toISOString().split('T')[0];
-    dateInput.setAttribute('min', today);
-}
-
-if (bookingForm && dateInput && timeInput) {
-    bookingForm.addEventListener('submit', function(event) {
-        event.preventDefault();
-
-        const selectedDate = new Date(dateInput.value);
-        const selectedTime = timeInput.value;
-        const now = new Date();
-
-        if (selectedDate.toDateString() === now.toDateString()) {
-            if (selectedTime <= now.toTimeString().slice(0, 5)) {
-                alert('You cannot book a past time today. Please select a future time.');
-                return;
-            }
-        }
-
-        const formattedDate = selectedDate.toLocaleDateString('en-GB').replace(/\//g, '-');
-        alert(`Appointment booked for ${formattedDate} at ${selectedTime}`);
-        bookingForm.reset();
-    });
-}
-    </script>
+     <script  src="js/script.js"></script>
 
 </body>
 </html>
